@@ -105,25 +105,76 @@ int string_concat(char* str1, char* str2, int max){
 
 }
 
-int string_subcadena(char* str1, char* str2){
-    int long1 = string_len(str1);
-    int long2 = string_len(str2);
+//int string_subcadena(char* str1, char* str2){
+//    int long1 = string_len(str1);
+//    int long2 = string_len(str2);
+//
+//    for(int principal = 0; principal < long1; principal ++){
+//        for(int secundario = 0; secundario < long2; secundario ++){
+//            if (str1[principal] != str2[secundario]){
+//                return principal;
+//            }
+//            else{
+//                return -1;
+//            }
+//        }
+//
+//    }
+//}
 
-    for(int principal = 0; principal < long1; principal ++){
-        for(int secundario = 0; secundario < long2; secundario ++){
-            if (str1[principal] != str2[secundario]){
-                return principal;
-            }
-            else{
-                return -1;
-            }
-        }
 
+//d) int string compare(char* str1, char* str2), que compare en orden lexicogr´afico las cadenas
+// str1 y str2, y retorne retorne -1 si la primera es menor que la segunda, 0 si son iguales, y 1 si es
+// mayor.
+
+int string_compare(char* string1, char* string2){
+    int contador = 0;
+    
+    while (string1[contador] != '\0' && string2[contador] != '\0'){
+        if (string1[contador] < string2[contador]) return -1;
+        if (string1[contador] > string2[contador]) return 1;
+        contador ++;
     }
+    if (string1[contador] == '\0' && string2[contador] == '\0') return 0;
+    if (string1[contador] == '\0') return -1;
+    return 1;
 }
 
+
+// e) int string subcadena(char* str1, char* str2), que retorne el ındice de la primera ocurrencia
+// de la cadena str2 en la cadena str1. En caso de no ocurrir nunca, retorna −1.
+
+int string_subcadena(char* string1, char* string2){
+    
+    int cont = 0;
+
+    while (string1[cont] != '\0' && string2[cont] != '\0'){
+        
+        if(string1[cont] == string2[cont]){
+            return cont;}
+        else{
+            cont ++;
+        }
+    }
+    
+    return -1;
+
+}
+
+
+
+
+
+
+
+
+
+
+
 int main() {
+    
 //    EJERCICIO 1;
+
 //    float arreglo[] = {-1.0, 2.2, 2.9, 3.1};
 //    float *punt = arreglo;
 //
@@ -132,6 +183,7 @@ int main() {
 
 
 //    EJERCICIO 2_A;
+
 //    char palabra[] = "hola";
 //    char* punt = palabra;
 //
@@ -151,11 +203,16 @@ int main() {
 //    EJERCICIO 2_C;
 
 //    EJERCICIO 2_D;
-char* string1 = "cosa";
-char* string2 = "put";
 
+//    char* string1 = "sol";
+//    char* string2 = "silla";
 
-    printf("%d\n",string_subcadena(string1, string2));
-    return 0;
-}
+//    printf("%d\n",string_compare(string1, string2));
+
+char* string1 = "a";
+char* string2 = "";
+
+printf("%d\n", string_subcadena(string1, string2));
+
+}   
 
