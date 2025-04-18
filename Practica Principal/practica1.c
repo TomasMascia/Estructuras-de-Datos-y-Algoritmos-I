@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 //Practica 1 - Arreglos
 
@@ -56,6 +57,48 @@ float mediana(float *arreglo, int longitud){
     return resultado;
 };
 
+//    EJERCICIO 1;
+
+//    float arreglo[] = {-1.0, 2.2, 2.9, 3.1};
+//    float *punt = arreglo;
+//
+//    printf("La mediana es: %.2f\n", mediana(punt, 4));
+//    return 0;
+//---------------------------------------------------------------------------------------------------------------------------------------------
+//    EJERCICIO 2_B;
+
+//    char palabra[] = "hola";
+//    char* punt = palabra;
+//    
+//    string_reverse(punt);
+//
+//    printf("La palabra reverse es %s\n", punt);
+
+
+//    EJERCICIO 2_C;
+
+//    EJERCICIO 2_D;
+
+//    char* string1 = "sol";
+//    char* string2 = "silla";
+
+//    printf("%d\n",string_compare(string1, string2));
+
+
+//    EJERCICIO 2_E
+
+//char* string1 = "abc";
+//char* string2 = "bac";
+
+//printf("%d\n", string_subcadena(string1, string2));
+
+
+
+
+
+
+
+
 
 
 // EJERCICIO 2
@@ -71,6 +114,16 @@ int string_len(char* str){
     }
     return resultado;
 }
+
+//    EJERCICIO 2_A;
+
+//    char palabra[] = "hola";
+//    char* punt = palabra;
+//
+//    printf("La longitud es %d\n",string_len(punt));
+
+
+//---------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -91,6 +144,10 @@ void string_reverse(char* str){
     }
 }
 
+//---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
 
 //c) int string_concat(char* str1, char* str2, int max), que concatene no mas de max caracteres de la cadena str2 al final de la cadena str1.
 // El caracter inicial de str2 debe sobrescribir el caracter nulo de str1. La cadena resultante debe terminar con un caracter nulo. Retorna el
@@ -104,7 +161,7 @@ int string_concat(char* str1, char* str2, int max){
 
 
 }
-
+//---------------------------------------------------------------------------------------------------------------------------------------------
 //int string_subcadena(char* str1, char* str2){
 //    int long1 = string_len(str1);
 //    int long2 = string_len(str2);
@@ -122,7 +179,7 @@ int string_concat(char* str1, char* str2, int max){
 //    }
 //}
 
-
+//---------------------------------------------------------------------------------------------------------------------------------------------
 //d) int string compare(char* str1, char* str2), que compare en orden lexicogr´afico las cadenas
 // str1 y str2, y retorne retorne -1 si la primera es menor que la segunda, 0 si son iguales, y 1 si es
 // mayor.
@@ -140,7 +197,7 @@ int string_compare(char* string1, char* string2){
     return 1;
 }
 
-
+//---------------------------------------------------------------------------------------------------------------------------------------------
 // e) int string subcadena(char* str1, char* str2), que retorne el ındice de la primera ocurrencia
 // de la cadena str2 en la cadena str1. En caso de no ocurrir nunca, retorna −1.
 
@@ -151,7 +208,8 @@ int string_subcadena(char* string1, char* string2){
     while (string1[cont] != '\0' && string2[cont] != '\0'){
         
         if(string1[cont] == string2[cont]){
-            return cont;}
+            return cont;
+        }
         else{
             cont ++;
         }
@@ -160,9 +218,60 @@ int string_subcadena(char* string1, char* string2){
     return -1;
 
 }
+//---------------------------------------------------------------------------------------------------------------------------------------------
+// f ) void string unir(char* arregloStrings[], int n, char* sep, char* res), que concatene
+// las n cadenas del arreglo arregloStrings, separ´andolas por la cadena sep y almacenando el resultado en res.
+// Nota: Si res no tiene espacio suficiente para almacenar el resultado, el comportamiento queda indefinido.
+
+// Ejemplo:
+// ["pipe" "gay"] 2 " " res ---> "pipe gay"
+
+void string_unir(char* arregloStrings[], int n, char* sep, char* res) {
+    int j = 0;
+    int operaciones = 0;
+  
+    for (int i = 0; i < n; i++) {
+      int k = 0;
+  
+      while (arregloStrings[i][k] != '\0') {
+        res[j] = arregloStrings[i][k];
+        j++;
+        k++;
+        operaciones += 2;
+      }
+  
+      if (i < n - 1) {
+        int a = 0;
+        while (sep[a] != '\0') {
+          res[j] = sep[a];
+          j++;
+          a++;
+          operaciones += 2;
+        }
+      }
+    }
+  
+    res[j] = '\0';
+    operaciones++;
+  
+    printf("Operaciones realizadas: %d\n", operaciones);
+  }
+
+  
+//---------------------------------------------------------------------------------------------------------------------------------------------
 
 
+//3. Considere arreglos de enteros definidos a trav´es de una estructura que lleve registro de la capacidad:
+typedef struct {
+    int* direccion;
+    int capacidad;
+} ArregloEnteros;
 
+//a) ArregloEnteros* arreglo_enteros_crear(int capacidad);
+
+ArregloEnteros* arreglo_entero_crear(int capacidad){
+    
+}
 
 
 
@@ -173,46 +282,7 @@ int string_subcadena(char* string1, char* string2){
 
 int main() {
     
-//    EJERCICIO 1;
 
-//    float arreglo[] = {-1.0, 2.2, 2.9, 3.1};
-//    float *punt = arreglo;
-//
-//    printf("La mediana es: %.2f\n", mediana(punt, 4));
-//    return 0;
-
-
-//    EJERCICIO 2_A;
-
-//    char palabra[] = "hola";
-//    char* punt = palabra;
-//
-//    printf("La longitud es %d\n",string_len(punt));
-
-
-//    EJERCICIO 2_B;
-
-//    char palabra[] = "hola";
-//    char* punt = palabra;
-//    
-//    string_reverse(punt);
-//
-//    printf("La palabra reverse es %s\n", punt);
-
-
-//    EJERCICIO 2_C;
-
-//    EJERCICIO 2_D;
-
-//    char* string1 = "sol";
-//    char* string2 = "silla";
-
-//    printf("%d\n",string_compare(string1, string2));
-
-char* string1 = "a";
-char* string2 = "";
-
-printf("%d\n", string_subcadena(string1, string2));
 
 }   
 
