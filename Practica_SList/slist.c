@@ -182,17 +182,119 @@ SList slist_intersecar(SList lista1, SList lista2){
   }
   return listanueva;
 }
+//______________________________________________________________________________________________________________________________________________
+// OTRA MANERA DE HACERLO
+
+SList slist_intersecar2(SList lista1,SList lista2){
+  
+  SList listanueva = slist_crear();
+
+  for(SNodo *nodo = lista1; nodo != NULL; nodo = nodo->sig){
+    if(slist_contiene(lista2, nodo->dato)){
+      slist_agregar_inicio(listanueva, nodo->dato);
+    }
+  }
+  return listanueva;
+}
+
+
 
 //______________________________________________________________________________________________________________________________________________
 
 // Ejercicio 2_h
 
+int mayor_menor(int a, int b){
+  if(a > b){
+    return 1;
+  }
+  else if (a < b){
+    return 0;
+  }
+  else{
+    return a;
+  }
+}
+
+SList slist_ordenar(SList lista, int *funcion){
+}
+
 //______________________________________________________________________________________________________________________________________________
 
 // Ejercicio 2_i
 
+SList slist_reverso(SList cabeza) {
+  SList anterior = NULL;
+  SList actual = cabeza;
+  SList siguiente = NULL;
+
+  while (actual != NULL) {
+      siguiente = actual->sig;
+      actual->sig = anterior;  
+      anterior = actual;
+      actual = siguiente;
+  }
+
+  return anterior;
+}
+
+// Forma de gaspo
+SList slist_reverso2(SList lista) {
+  SList resultado = slist_crear();
+
+  for (SNodo *nodo = lista; nodo != NULL; nodo = nodo->sig){
+    resultado = slist_agregar_inicio(resultado, nodo->dato);
+  }
+
+  return resultado;
+}
+
+
 //______________________________________________________________________________________________________________________________________________
 
-// Ejercicio 2_j
+// Ejercicio 2_k
 
+SList slist_intercalar(SList lista1, SList lista2){
+  SList intercalado = slist_crear();
+
+  while(lista1 != NULL || lista2 != NULL ){
+    if (lista1 != NULL) {
+      intercalado = slist_agregar_final(intercalado, lista1->dato);
+      lista1 = lista1->sig;
+  }
+  if (lista2 != NULL) {
+      intercalado = slist_agregar_final(intercalado, lista2->dato);
+      lista2 = lista2->sig;
+  }
+}
+
+return intercalado;
+}
+//______________________________________________________________________________________________________________________________________________
+
+// Ejercicio 2_l
+
+void slist_partir(SList lista){
+  
+  if (lista == NULL || lista->sig == NULL){
+    return NULL;
+  }
+  
+  int longitud = slist_longitud(lista);
+  int mitad = 0;
+
+  if(longitud % 2 == 0){
+    int mitad = longitud / 2;
+  }
+  else{
+    int mitad = (longitud / 2) + 1;
+  }
+  
+  SList primera = slist_crear();
+  SList segunda = slist_crear();
+
+  for(int i = 0; i < mitad;i++){
+    SNodo *nodo = lista;
+    segunda = slist_agregar_final(segunda, (nodo->dato));
+  }
+}
 //______________________________________________________________________________________________________________________________________________
