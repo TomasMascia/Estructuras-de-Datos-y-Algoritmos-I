@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
  
   lista = slist_agregar_inicio(lista, 3);
   lista = slist_agregar_inicio(lista, 2);
-  lista = slist_agregar_inicio(lista, 1);
+  lista = slist_agregar_final(lista, 1);
 
    SList lista2 = slist_crear();
 
@@ -20,14 +20,22 @@ int main(int argc, char *argv[]) {
    lista2 = slist_agregar_inicio(lista2, 2);
    lista2 = slist_agregar_inicio(lista2, 7);
 
-  //slist_recorrer(lista, imprimir_entero);
-  //puts("");
 
+  //printf("%d\n", slist_contiene(lista, 22));
+  
+  //SList listanueva = slist_reverso2(lista);
 
-  SList nuevalista = slist_intercalar(lista, lista2);
-
-  slist_recorrer(nuevalista, imprimir_entero);
+  slist_recorrer(lista, imprimir_entero);
   puts("");
+
+  slist_recorrer(lista2, imprimir_entero);
+  puts("");
+
+
+  //SList nuevalista = slist_intercalar(lista, lista2);
+
+  //slist_recorrer(nuevalista, imprimir_entero);
+  //puts("");
 
 
 

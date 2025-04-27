@@ -52,7 +52,7 @@ int slist_longitud(SList lista);
 
 // Ejercicio 2_b
 
-void slist_concatenar(SList *lista1,SList lista2);
+void slist_concatenar(SList lista1,SList lista2);
 
 //______________________________________________________________________________________________________________________________________________
 

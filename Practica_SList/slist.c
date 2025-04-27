@@ -52,24 +52,40 @@ void slist_recorrer(SList lista, FuncionVisitante visit) {
 
 // Ejercicio 2_a
 
+//int slist_longitud(SList lista){
+//
+//  int contador = 0;
+//  for(SNodo *nodo = lista ; nodo != NULL; nodo = nodo->sig ){
+//    contador++;
+//  }
+//  return contador;
+// }
 int slist_longitud(SList lista){
-
   int contador = 0;
-  for(SNodo *nodo = lista ; nodo != NULL; nodo = nodo->sig ){
-    contador++;
+  while(lista != NULL){
+    lista = lista->sig;
+    contador ++;
   }
   return contador;
 }
+
 
 //______________________________________________________________________________________________________________________________________________
 
 // Ejercicio 2_b
 
-void slist_concatenar(SList* lista1, SList lista2){
-  SList nodo = *lista1;
-  for(; nodo->sig != NULL; nodo = nodo->sig){
-  }  
-  nodo->sig = lista2;
+//void slist_concatenar(SList *lista1, SList lista2){
+//  SList nodo = *lista1;
+//  for(; nodo->sig != NULL; nodo = nodo->sig){
+//  }  
+//  nodo->sig = lista2;                                                     
+//}
+
+void slist_concatenar(SList lista1, SList lista2){
+  while(lista1->sig != NULL){
+    lista1 = lista1->sig;
+  }
+  lista1->sig = lista2;
 }
 
 //______________________________________________________________________________________________________________________________________________
@@ -138,15 +154,22 @@ void slist_eliminar(SList *lista, int posicion){
 // Ejercicio 2_e
 
 
-int slist_contiene(SList lista, int objeto){
-  
-  for(SNodo *nodo = lista;nodo != NULL; nodo = nodo->sig){
-    if(nodo->dato == objeto){
-      return 1;
-    }
+//int slist_contiene(SList lista, int objeto){
+//  
+//  for(SNodo *nodo = lista;nodo != NULL; nodo = nodo->sig){
+//    if(nodo->dato == objeto){
+//      return 1;
+//    }
+//  }
+//  return 0;
+//}
+int slist_contiene(SList lista, int obj){
+  while(lista->dato != obj || lista != NULL){
+    lista = lista->sig;
   }
-  return 0;
+  return (lista->dato == obj);
 }
+
 //______________________________________________________________________________________________________________________________________________
 
 // Ejercicio 2_f
@@ -182,6 +205,7 @@ SList slist_intersecar(SList lista1, SList lista2){
   }
   return listanueva;
 }
+
 //______________________________________________________________________________________________________________________________________________
 // OTRA MANERA DE HACERLO
 
@@ -261,7 +285,7 @@ SList slist_intercalar(SList lista1, SList lista2){
       intercalado = slist_agregar_final(intercalado, lista1->dato);
       lista1 = lista1->sig;
   }
-  if (lista2 != NULL) {
+    if (lista2 != NULL) {
       intercalado = slist_agregar_final(intercalado, lista2->dato);
       lista2 = lista2->sig;
   }
@@ -273,28 +297,32 @@ return intercalado;
 
 // Ejercicio 2_l
 
-void slist_partir(SList lista){
-  
-  if (lista == NULL || lista->sig == NULL){
-    return NULL;
-  }
-  
-  int longitud = slist_longitud(lista);
-  int mitad = 0;
-
-  if(longitud % 2 == 0){
-    int mitad = longitud / 2;
-  }
-  else{
-    int mitad = (longitud / 2) + 1;
-  }
-  
-  SList primera = slist_crear();
-  SList segunda = slist_crear();
-
-  for(int i = 0; i < mitad;i++){
-    SNodo *nodo = lista;
-    segunda = slist_agregar_final(segunda, (nodo->dato));
-  }
-}
+//void slist_partir(SList lista){
+//  
+//  if (lista == NULL || lista->sig == NULL){
+//    return NULL;
+//  }
+//  
+//  int longitud = slist_longitud(lista);
+//  int mitad = 0;
+//
+//  if(longitud % 2 == 0){
+//    int mitad = longitud / 2;
+//  }
+//  else{
+//    int mitad = (longitud / 2) + 1;
+//  }
+//  
+//  SList primera = slist_crear();
+//  SList segunda = slist_crear();
+//
+//  for(int i = 0; i < mitad;i++){
+//    SNodo *nodo = lista;
+//    segunda = slist_agregar_final(segunda, (nodo->dato));
+//  }
+//}
 //______________________________________________________________________________________________________________________________________________
+
+
+// IMPLEMENTAMOS ESTA DEF
+
