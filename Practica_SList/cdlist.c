@@ -24,15 +24,48 @@ typedef enum {
 
 
 CDList cdlist_crear(){
-    return NULL
+    return NULL;
 }
 
-void cdlist_destruir(CDList lista);
+void cdlist_destruir(CDList lista){
+    DNodo * nodoEliminar = lista->sig;
+    DNodo * inicio = lista;
+    DNodo * temp;
 
-int cdlist_vacia(CDList lista);
+    while(nodoEliminar != inicio){
+        temp = nodoEliminar;
+        nodoEliminar = nodoEliminar->sig;
+        free(temp);
+    }
+}
 
-void cdlist_agregar(CDList* lista, int dato);
+int cdlist_vacia(CDList lista){
+    return lista == NULL;
+}
 
-void cdlist_recorrer(CDList lista, FuncionVisitante visit, DListOrdenRecorrido direccion);
+void cdlist_agregar(CDList lista, int objeto){
+    DNodo * nodonuevo = malloc(sizeof(DNodo));
+    nodonuevo->dato = objeto;
+
+    if (lista == NULL){
+        
+        lista->sig = nodonuevo;
+        lista->ant = nodonuevo;
+        lista = nodonuevo;
+    
+    }
+    else{
+        nodonuevo->sig = lista;
+        nodonuevo->ant = lista->ant;
+
+        lista->ant->sig = nodonuevo;
+        lista->ant = nodonuevo;
+        lista = nodonuevo;
+    }
+}
+
+void cdlist_recorrer(CDList lista, FuncionVisitante visit, DListOrdenRecorrido direccion){
+    
+}
 
 int cdlist_longitud(CDList lista);

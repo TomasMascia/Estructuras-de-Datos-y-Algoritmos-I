@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 /**
  * Crea un nuevo contacto.
  */

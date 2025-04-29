@@ -3,6 +3,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int contacto_mayor_60(Contacto * contacto){
+  return contacto->edad >= 60;
+}
+
+
 int main() {
 
   GList lista = glist_crear();
@@ -15,12 +20,16 @@ int main() {
   contactos[5] = contacto_crear("Dardo Fuseneco", "3416894526", 64);
 
   for (int i = 0; i < 6; ++i) {
-    lista =
-        glist_agregar_inicio(lista, contactos[i], (FuncionCopia)contacto_copia);
+    lista = glist_agregar_inicio(lista, contactos[i], (FuncionCopia)contacto_copia);
     contacto_destruir(contactos[i]);
   }
 
   printf("Lista:\n");
+  glist_recorrer(lista, (FuncionVisitante)contacto_imprimir);
+
+  lista = glist_filtrar(lista, (FuncionCopia)contacto_copia, (Predicado)contacto_mayor_60);
+  
+  printf("Lista FILTRADA:\n");
   glist_recorrer(lista, (FuncionVisitante)contacto_imprimir);
 
   glist_destruir(lista, (FuncionDestructora)contacto_destruir);
