@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 #define min(x,y) (x < y) ? x : y 
 
 
@@ -292,7 +293,7 @@ int pila_tope(Pila pila){
 //v. void pila apilar(Pila, int): inserta un elemento en el tope de la pila, en caso que la pila
 //se encuentre llena, debera aumentar al doble la capacidad del arreglo.
 //Ayuda: puede llamar a la funcion arreglo enteros ajustar.
-void pila_apilar(Pila pila, int dato){
+BTree pila_apilar(Pila pila, int dato){
     int longitud = arreglo_enteros_capacidad(pila->arr);
     
     if(pila->ultimo == -1){
@@ -314,7 +315,7 @@ void pila_apilar(Pila pila, int dato){
 }
 
 //vi. void pila desapilar(Pila): elimina el elemento que se encuentra en el tope de la pila.
-void pila_desapilar(Pila pila){
+BTree pila_desapilar(Pila pila){
     arreglo_enteros_eliminar(pila->arr, pila->ultimo);
     pila->ultimo = pila->ultimo - 1;
 }
