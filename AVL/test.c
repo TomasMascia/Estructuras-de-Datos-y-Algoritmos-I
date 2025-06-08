@@ -29,8 +29,7 @@ int main() {
   // caso de prueba 1:
   // se insertan 500 enteros aleatorios entre 0 y 999,
   // validando que cada arbol intermedio sea AVL
-  AVL arbol = avl_crear(copiar_puntero_entero, comparar_puntero_entero,
-    destruir_puntero_entero);
+  AVL arbol = avl_crear(copiar_puntero_entero, comparar_puntero_entero, destruir_puntero_entero);
   for (int i = 0; i < 500; ++i) {
     int i = rand() % 1000;
     avl_insertar(arbol, &i);
