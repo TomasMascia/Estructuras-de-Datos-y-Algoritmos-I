@@ -293,32 +293,32 @@ int pila_tope(Pila pila){
 //v. void pila apilar(Pila, int): inserta un elemento en el tope de la pila, en caso que la pila
 //se encuentre llena, debera aumentar al doble la capacidad del arreglo.
 //Ayuda: puede llamar a la funcion arreglo enteros ajustar.
-BTree pila_apilar(Pila pila, int dato){
-    int longitud = arreglo_enteros_capacidad(pila->arr);
-    
-    if(pila->ultimo == -1){
-        pila->arr = arreglo_enteros_crear(5);
-        pila->arr->direccion[0] = dato;
-        pila->ultimo = pila->ultimo +1;
-    }
-    
-    else if (pila->ultimo + 1 == pila->arr->capacidad){
-        arreglo_enteros_ajustar(pila->arr,(pila->arr->capacidad) *2);
-        pila->arr->direccion[pila->ultimo + 1] = dato;
-        pila->ultimo = pila->ultimo + 1;
-    }
-    else{
-        pila->arr->direccion[pila->ultimo + 1] = dato;
-        pila->ultimo = pila->ultimo + 1;
-    }
-    
-}
+//BTree pila_apilar(Pila pila, int dato){
+//    int longitud = arreglo_enteros_capacidad(pila->arr);
+//    
+//    if(pila->ultimo == -1){
+//        pila->arr = arreglo_enteros_crear(5);
+//        pila->arr->direccion[0] = dato;
+//        pila->ultimo = pila->ultimo +1;
+//    }
+//    
+//    else if (pila->ultimo + 1 == pila->arr->capacidad){
+//        arreglo_enteros_ajustar(pila->arr,(pila->arr->capacidad) *2);
+//        pila->arr->direccion[pila->ultimo + 1] = dato;
+//        pila->ultimo = pila->ultimo + 1;
+//    }
+//    else{
+//        pila->arr->direccion[pila->ultimo + 1] = dato;
+//        pila->ultimo = pila->ultimo + 1;
+//    }
+//    
+//}
 
 //vi. void pila desapilar(Pila): elimina el elemento que se encuentra en el tope de la pila.
-BTree pila_desapilar(Pila pila){
-    arreglo_enteros_eliminar(pila->arr, pila->ultimo);
-    pila->ultimo = pila->ultimo - 1;
-}
+//BTree pila_desapilar(Pila pila){
+//    arreglo_enteros_eliminar(pila->arr, pila->ultimo);
+//    pila->ultimo = pila->ultimo - 1;
+//}
 
 //vii. void pila imprimir(Pila): imprime en orden los elementos de la pila.
 void pila_imprimir(Pila pila){

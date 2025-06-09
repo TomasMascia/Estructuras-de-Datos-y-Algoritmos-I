@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include "btree.h"
 
+
+
 struct _BTNodo {
   int dato;
   struct _BTNodo *left;
@@ -86,23 +88,23 @@ void btree_recorrer(BTree arbol, BTreeOrdenDeRecorrido orden, FuncionVisitante v
 //c) Disene una version iterativa para el caso preorden. Ayuda: puede utilizar una pila general para
 //guardar los nodos a visitar.
 
-void btree_recorrer_pre_iterativo(BTree arbol, FuncionVisitante visit) {
-  if (arbol == NULL) return;
-
-  Pila pila = pila_crear;
-  pila_apilar(pila, arbol->dato); 
-
-  while (!pila_es_vacia(pila)){
-    BTree nodo = pila_desapilar(pila);
-    visit(nodo->dato);
-
-    if(nodo->right) {pila_apilar(pila, nodo->right);}
-    if(nodo->left) {pila_apilar(pila, nodo->left);}
-  }
-  
-  pila_destruir(pila);
-
-}
+//void btree_recorrer_pre_iterativo(BTree arbol, FuncionVisitante visit) {
+//  if (arbol == NULL) return;
+//
+//  Pila pila = pila_crear;
+//  pila_apilar(pila, arbol->dato); 
+//
+//  while (!pila_es_vacia(pila)){
+//    BTree nodo = pila_desapilar(pila);
+//    visit(nodo->dato);
+//
+//    if(nodo->right) {pila_apilar(pila, nodo->right);}
+//    if(nodo->left) {pila_apilar(pila, nodo->left);}
+//  }
+//  
+//  pila_destruir(pila);
+//
+//}
 
 
 
@@ -160,17 +162,17 @@ int btree_buscar(BTree arbol, int datonuevo){
 
 // Ejercicio 3-c
 
-BTree btree_copiar(BTree arbol){
-  if (arbol == NULL){
-    return NULL;
-  }
-  
-  BTree nuevoarbol = malloc(sizeof());
-  nuevoarbol->dato = arbol->dato;
-  nuevoarbol->left = btree_copiar(arbol->left);
-  nuevoarbol->right = btree_copiar(arbol->right);
-  return nuevoarbol;
-}
+//BTree btree_copiar(BTree arbol){
+//  if (arbol == NULL){
+//    return NULL;
+//  }
+//  
+//  BTree nuevoarbol = malloc(sizeof());
+//  nuevoarbol->dato = arbol->dato;
+//  nuevoarbol->left = btree_copiar(arbol->left);
+//  nuevoarbol->right = btree_copiar(arbol->right);
+//  return nuevoarbol;
+//}
 
 // Ejercicio 3-d
 
